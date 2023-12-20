@@ -3,6 +3,8 @@
 //
 #include <iostream>
 #include <cstdlib>
+#include "Node.h"
+#include <string>
 
 /*!
  * \mainpage Technical documentation of the example.
@@ -42,57 +44,21 @@
  * \brief The main.cpp file contains the entry point of the program.
  */
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-struct Node {
-    string option;
-    Node* next;
-};
-
-void insertOption(Node** head, string opt) {
-    Node* newNode = new Node();
-    newNode->option = opt;
-    newNode->next = (*head);
-    (*head) = newNode;
-}
-
-void displayMenu(Node* node) {
-    while (node != nullptr) {
-        cout << node->option << endl;
-        node = node->next;
-    }
-}
-
-void handleOption(string opt) {
-    if (opt == "opt1") {
-        cout << "Option 1 selected" << endl;
-        // Implement option 1 functionality
-    } else if (opt == "opt2") {
-        cout << "Option 2 selected" << endl;
-        // Implement option 2 functionality
-    }
-}
-
-
 int main() {
     system("clear");
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
-
     Node* head = nullptr;
     insertOption(&head, "Exit");
     insertOption(&head, "opt2");
     insertOption(&head, "opt1");
 
-    string userChoice;
+    std::string userChoice;
     do {
-        cout << "\nMenu:\n";
+        std::cout << "\nMenu:\n";
         displayMenu(head);
 
-        cout << "\nEnter your choice: ";
-        cin >> userChoice;
+        std::cout << "\nEnter your choice: ";
+        std::cin >> userChoice;
 
         if (userChoice != "Exit") {
             handleOption(userChoice);
@@ -100,7 +66,7 @@ int main() {
 
     } while (userChoice != "Exit");
 
-    cout << "Exiting program." << endl;
+    std::cout << "Exiting program." << std::endl;
 
     return 0;
 }
