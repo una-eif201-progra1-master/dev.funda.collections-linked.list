@@ -32,3 +32,10 @@ void handleOption(const std::string& opt) {
         // Implement option 2 functionality
     }
 }
+
+// Add a new function for initialization
+void initializeMenu(Node** head) {
+    insertOption(head, "Exit");
+    insertOption(head, "opt2");
+    insertOption(head, "opt1");
+}

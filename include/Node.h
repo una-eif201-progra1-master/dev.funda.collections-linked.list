@@ -19,5 +19,6 @@ struct Node {
 void insertOption(Node** head, const std::string& opt);
 void displayMenu(Node* node);
 void handleOption(const std::string& opt);
+void initializeMenu(Node** head);
 
 #endif //MAIN_NODE_H

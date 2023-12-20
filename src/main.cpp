@@ -48,9 +48,9 @@ int main() {
     system("clear");
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
     Node* head = nullptr;
-    insertOption(&head, "Exit");
-    insertOption(&head, "opt2");
-    insertOption(&head, "opt1");
+
+    // Initialize menu options
+    initializeMenu(&head);
 
     std::string userChoice;
     do {
