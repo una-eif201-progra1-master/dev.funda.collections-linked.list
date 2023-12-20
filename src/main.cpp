@@ -3,8 +3,7 @@
 //
 #include <iostream>
 #include <cstdlib>
-#include "Node.h"
-#include <string>
+#include "Menu.h"
 
 /*!
  * \mainpage Technical documentation of the example.
@@ -47,26 +46,9 @@
 int main() {
     system("clear");
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
-    Node* head = nullptr;
 
-    // Initialize menu options
-    initializeMenu(&head);
-
-    std::string userChoice;
-    do {
-        std::cout << "\nMenu:\n";
-        displayMenu(head);
-
-        std::cout << "\nEnter your choice: ";
-        std::cin >> userChoice;
-
-        if (userChoice != "Exit") {
-            handleOption(userChoice);
-        }
-
-    } while (userChoice != "Exit");
-
-    std::cout << "Exiting program." << std::endl;
+    Menu menu;
+    menu.handleUserInput();
 
     return 0;
 }
