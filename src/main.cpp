@@ -78,7 +78,12 @@ void handleOption(string opt) {
 
 
 int main() {
-    system("clear");
+    // Clear console screen for Windows or Linux
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
 
     Node* head = nullptr;
