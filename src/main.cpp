@@ -44,7 +44,11 @@
  */
 
 int main() {
+    #ifdef _WIN32
+    system("cls");
+    #else
     system("clear");
+    #endif
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
 
     Menu menu;
