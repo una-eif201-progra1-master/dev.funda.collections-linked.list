@@ -9,8 +9,8 @@ SET(CMAKE_EXPORT_COMPILE_COMMANDS 1)    # Export compile commands for clangd
 if(APPLE)
     # For macOS
     set(CMAKE_CXX_COMPILER "clang++")
-elseif(WIN32 AND UNIX AND NOT APPLE)
-    # For Linux and other Unix-like systems, excluding macOS
+elseif()
+    # For Windows, Linux and other Unix-like systems, excluding macOS
     set(CMAKE_CXX_COMPILER "g++")
 endif()
 
