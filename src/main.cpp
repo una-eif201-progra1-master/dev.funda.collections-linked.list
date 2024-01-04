@@ -44,10 +44,11 @@
  */
 
 int main() {
+    // Clear console screen for Windows or Linux
     #ifdef _WIN32
-    system("cls");
+        system("cls");
     #else
-    system("clear");
+        system("clear");
     #endif
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
 
