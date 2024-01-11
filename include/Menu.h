@@ -22,6 +22,10 @@ public:
 
     void handleUserInput();
 
+    bool isDynamicallyAllocated() const;
+
+    void setDynamicallyAllocated(bool dynamicallyAllocated);
+
 private:
     struct Node {
         std::string option;
@@ -32,12 +36,6 @@ private:
     Node *head;
     std::string title;
     bool dynamicallyAllocated;
-public:
-    bool isDynamicallyAllocated() const;
-
-    void setDynamicallyAllocated(bool dynamicallyAllocated);
-
-private:
 
     void insertOption(const std::string &opt, Menu *submenu);
 

@@ -12,10 +12,6 @@ Menu::Menu(const std::string &title, const std::vector<Option> &options)
     }
 }
 
-Menu::~Menu() {
-    clear();
-}
-
 void Menu::insertOption(const std::string &opt, Menu *submenu) {
     Node *newNode = new Node{opt, submenu, head};
     head = newNode;
@@ -54,10 +50,12 @@ void Menu::clear() {
     Node *current = head;
     while (current != nullptr) {
         Node *next = current->next;
+
         // Delete the submenu only if it is dynamically allocated
         if (current->submenu && current->submenu->isDynamicallyAllocated()) {
             delete current->submenu;
         }
+
         delete current;
         current = next;
     }
@@ -72,3 +70,6 @@ void Menu::setDynamicallyAllocated(bool dynamicallyAllocated) {
     Menu::dynamicallyAllocated = dynamicallyAllocated;
 }
 
+Menu::~Menu() {
+    clear();
+}
