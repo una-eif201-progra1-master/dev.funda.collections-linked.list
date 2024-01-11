@@ -52,8 +52,25 @@ int main() {
     #endif
     std::cout << "Universidad Nacional de Costa Rica - www.mikeguzman.dev" << std::endl;
 
-    Menu menu;
-    menu.handleUserInput();
+    Menu subMenu1("Submenu 1", {
+            {"Sub-option 1", nullptr},
+            {"Sub-option 2", nullptr},
+            {"Back",         nullptr}
+    });
+
+    Menu subMenu2("Submenu 2", {
+            {"Sub-option A", nullptr},
+            {"Sub-option B", nullptr},
+            {"Back",         nullptr}
+    });
+
+    Menu mainMenu("Main Menu", {
+            {"opt1", &subMenu1},
+            {"opt2", &subMenu2},
+            {"Exit", nullptr}
+    });
+
+    mainMenu.handleUserInput();
 
     return 0;
 }

@@ -1,37 +1,47 @@
 //
 // Created by Maikol Guzman on 19/12/23.
 //
-
-#ifndef MAIN_MENU_H
-#define MAIN_MENU_H
-
+#ifndef MENU_H
+#define MENU_H
 
 #include <string>
-
-/*!
- * \class Menu
- * \brief The Menu class represents a menu.
- */
+#include <vector>
 
 class Menu {
 public:
-    Menu();
+    struct Option {
+        std::string name;
+        Menu *submenu;
+    };
+
+    explicit Menu(const std::string &title, const std::vector<Option> &options);
+
     ~Menu();
+
     void displayMenu() const;
+
     void handleUserInput();
 
 private:
     struct Node {
         std::string option;
-        Node* next;
+        Menu *submenu;
+        Node *next;
     };
 
-    Node* head;
+    Node *head;
+    std::string title;
+    bool dynamicallyAllocated;
+public:
+    bool isDynamicallyAllocated() const;
 
-    void insertOption(const std::string& opt);
-    static void handleOption(const std::string& opt);
+    void setDynamicallyAllocated(bool dynamicallyAllocated);
+
+private:
+
+    void insertOption(const std::string &opt, Menu *submenu);
+
     void clear();
 };
 
-
-#endif //MAIN_MENU_H
+#endif // MENU_H
